@@ -80,9 +80,8 @@ def mostrar_diferencia_followers_twitter(lista_registros):
 
 
 # ---------------------------------------------------------------------
-# El usuario elige dos meses y se calcula la diferencia de
-# visualizaciones de YouTube entre esos meses
-# ---------------------------------------------------------------------
+#  El usuario elige dos meses y se calcula la diferencia de visualizaciones de YouTube entre esos meses
+# --------------------------------------------------------------------
 def pedir_mes(mensaje):
 
     indice_mes = -1
@@ -124,7 +123,7 @@ def mostrar_diferencia_visualizaciones_youtube(lista_registros):
 
 
 # ---------------------------------------------------------------------
-# Punto 4: promedio de crecimiento de Twitter y Facebook (enero-junio)
+# Promedio de crecimiento de Twitter y Facebook (enero-junio)
 # ---------------------------------------------------------------------
 def mostrar_promedio_crecimiento(lista_registros):
     registro_facebook = buscar_registro(lista_registros, "FACEBOOK", "CRECIMIENTO (seguidores)")
@@ -144,7 +143,7 @@ def mostrar_promedio_crecimiento(lista_registros):
 
 
 # ---------------------------------------------------------------------
-# Punto 5: promedio de "Me gusta" de YouTube, Twitter y Facebook
+# Promedio de "Me gusta" de YouTube, Twitter y Facebook
 # --------------------------------------------------------------------
 
 def mostrar_promedio_me_gusta(lista_registros):
