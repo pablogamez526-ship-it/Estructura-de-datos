@@ -1,6 +1,6 @@
 import csv
 
-# Los nombres de mes en el mismo orden que las columnas del CSV (posicion 0 = enero)
+
 NOMBRES_MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio",
                   "julio", "agosto", "septiembre", "octubre", "noviembre",
                   "diciembre"]
@@ -12,7 +12,7 @@ class RegistroMetrica:
     def __init__(self, red_social, concepto, valores_texto):
         self.__red_social = red_social
         self.__concepto = concepto
-        self.__valores_mensuales = valores_texto  # lista de 12 textos (uno por mes)
+        self.__valores_mensuales = valores_texto  
 
     def get_red_social(self):
         return self.__red_social
@@ -21,7 +21,7 @@ class RegistroMetrica:
         return self.__concepto
 
     def get_valor(self, indice_mes):
-        # indice_mes: 0 = enero, 1 = febrero, ... 11 = diciembre
+        
         texto_valor = self.__valores_mensuales[indice_mes]
         return int(texto_valor)
 
@@ -35,13 +35,12 @@ def leer_csv(nombre_archivo):
     primera_fila = True
     for fila in lector:
         if primera_fila:
-            # La primera fila es el encabezado (RED SOCIAL, CONCEPTO, AÑO, ENERO...)
-            primera_fila = False
+           primera_fila = False
             continue
 
         red_social = fila[0]
         concepto = fila[1]
-        valores_meses = fila[3:15]  # columnas de ENERO a DICIEMBRE (12 valores)
+        valores_meses = fila[3:15]  
 
         registro = RegistroMetrica(red_social, concepto, valores_meses)
         lista_registros.append(registro)
@@ -65,7 +64,7 @@ def promedio(lista_valores):
         suma = suma + valor
     return suma / len(lista_valores)
 # ---------------------------------------------------------------------
-# Punto 2: diferencia de seguidores de Twitter entre enero y junio
+# Diferencia de seguidores de Twitter entre enero y junio
 # ---------------------------------------------------------------------
 def mostrar_diferencia_followers_twitter(lista_registros):
     registro = buscar_registro(lista_registros, "TWITTER", "SEGUIDORES (FOLLOWERS)")
@@ -81,7 +80,7 @@ def mostrar_diferencia_followers_twitter(lista_registros):
 
 
 # ---------------------------------------------------------------------
-# Punto 3: el usuario elige dos meses y se calcula la diferencia de
+# El usuario elige dos meses y se calcula la diferencia de
 # visualizaciones de YouTube entre esos meses
 # ---------------------------------------------------------------------
 def pedir_mes(mensaje):
@@ -146,7 +145,8 @@ def mostrar_promedio_crecimiento(lista_registros):
 
 # ---------------------------------------------------------------------
 # Punto 5: promedio de "Me gusta" de YouTube, Twitter y Facebook
-# ---------------------------------------------------------------------
+# --------------------------------------------------------------------
+
 def mostrar_promedio_me_gusta(lista_registros):
     registro_facebook = buscar_registro(lista_registros, "FACEBOOK", "ME GUSTA EN PUBLICACIONES")
     registro_twitter = buscar_registro(lista_registros, "TWITTER", "ME GUSTA")
